@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<Description>Marte sink for Serilog</Description>
+    <TargetFrameworks>net46;netstandard1.3</TargetFrameworks>
+    <RootNamespace>Serilog</RootNamespace>
+	<Authors>Joona-Pekka Kokko</Authors>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<Company />
+	<AssemblyOriginatorKeyFile>../../assets/Serilog.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>False</SignAssembly>
+	<PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+	<PackageId>Serilog.Sinks.Marten</PackageId>
+    <PackageTags>serilog;marten</PackageTags>
+    <PackageIconUrl>https://serilog.net/images/serilog-sink-nuget.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/jokokko/serilog-sinks-marten</PackageProjectUrl>
+    <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>	
+	<DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <TreatSpecificWarningsAsErrors />
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="Marten" Version="2.0.0" />
+	<PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="2.1.1" />	
+  </ItemGroup>
+  
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
+    <Reference Include="System" />
+	<Reference Include="System.Data" />
+    <Reference Include="Microsoft.CSharp" />	
+  </ItemGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net46' ">
+    <DefineConstants>TRACE;DEBUG;NET46</DefineConstants>
+  </PropertyGroup>
+  
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">    
+  </ItemGroup>
+
+</Project>
