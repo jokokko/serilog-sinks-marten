@@ -33,6 +33,6 @@ var log = new LoggerConfiguration()
         .CreateLogger();
 ```
 
-Note: By default, issues in the Marten Document Store are created through the bulk insertion API. The default Marten Event Store loggers enlist in a Marten `LightweightSession` (i.e. no document tracking) to persist any event batches within a single transaction.
+Note: By default, documents in the Marten Document Store are created through the bulk insertion API. The default Marten Event Store loggers enlist in a Marten `LightweightSession` (i.e. no document tracking) to persist any logged event batches within a single transaction.
 
 Integration tests (against PostgreSQL) only run if `marten_testing_database` environment variable is set (e.g. `host=localhost;database=marten_test;password=marten;username=marten`).
