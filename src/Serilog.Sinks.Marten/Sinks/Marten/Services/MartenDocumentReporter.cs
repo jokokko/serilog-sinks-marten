@@ -29,7 +29,7 @@ namespace Serilog.Sinks.Marten.Services
 
 			var eventsToLog = toDocuments(events);
 
-			store.BulkInsert(tenancy, eventsToLog.ToArray());
+			store.BulkInsertDocuments(tenancy, eventsToLog);
 		}
 
 		public void Dispose()
